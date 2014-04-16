@@ -80,6 +80,7 @@
                 <prop key="hibernate.show_sql">false</prop>
             </props>
         </property>
+        <property name="packagesToScan" value="org.opencloudengine.samples.spring.boot"/>
     </bean>
 
     <!-- ========================= TRANSACTION DEFINITION ========================= -->
