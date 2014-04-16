@@ -21,7 +21,7 @@
         <spring.boot.version>1.0.0.RELEASE</spring.boot.version>
         <spring.version>4.0.3.RELEASE</spring.version>
         <quartz.version>2.2.1</quartz.version>
-        <mysql.connector.version>5.1.28</mysql.connector.version>
+        <mysql.connector.version>5.1.30</mysql.connector.version>
         <c3p0.version>0.9.1.2</c3p0.version>
         <log4jdbc.remix.version>0.2.7</log4jdbc.remix.version>
     </properties>
