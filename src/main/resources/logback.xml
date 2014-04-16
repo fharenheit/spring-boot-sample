@@ -42,11 +42,19 @@
     <logger name="org.crsh.plugin" level="WARN"/>
     <logger name="org.apache.tomcat.util.net.NioSelectorPool" level="WARN"/>
     <logger name="org.apache.catalina.startup.DigesterFactory" level="ERROR"/>
-    <logger name="org.thymeleaf" additivity="false">
-        <appender-ref ref="DEBUG_LEVEL_REMAPPER"/>
-    </logger>
+    <logger name="org.springframework" level="INFO"/>
+    <logger name="org.hibernate" level="INFO"/>
+    <logger name="org.quartz" level="INFO"/>
+    <logger name="com.mchange" level="INFO"/>
 
-    <root level="INFO">
+    <logger name="jdbc.sqlonly" level="DEBUG"/>
+    <logger name="jdbc.sqltiming" level="DEBUG"/>
+    <logger name="jdbc.resultset" level="DEBUG"/>
+    <logger name="jdbc.audit" level="INFO"/>
+    <logger name="jdbc.connection" level="INFO"/>
+    <logger name="log4jdbc.debug" level="DEBUG"/>
+
+    <root level="DEBUG">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE"/>
     </root>
