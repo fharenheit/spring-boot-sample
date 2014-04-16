@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 
 import javax.annotation.Resource;
 
-public class BaseDAO {
+public class BaseRepository {
 
 	@Resource(name = "sessionFactory")
 	protected SessionFactory sessionFactory;

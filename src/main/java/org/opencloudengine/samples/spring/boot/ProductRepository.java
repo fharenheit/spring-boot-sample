@@ -3,7 +3,7 @@ package org.opencloudengine.samples.spring.boot;
 import org.springframework.stereotype.Component;
 
 @Component("prodDAO")
-public class ProductDAO extends BaseDAO {
+public class ProductRepository extends BaseRepository {
 
 	public Product getProduct(int id) {
 		System.out.println("In DAO class");

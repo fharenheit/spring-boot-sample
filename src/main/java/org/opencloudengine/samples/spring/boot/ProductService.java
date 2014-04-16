@@ -7,9 +7,9 @@ import org.springframework.stereotype.Service;
 public class ProductService {
 
 	@Autowired
-	private ProductDAO dao;
+	private ProductRepository dao;
 
-	public void setDao(ProductDAO dao) {
+	public void setDao(ProductRepository dao) {
 		this.dao = dao;
 	}
 
