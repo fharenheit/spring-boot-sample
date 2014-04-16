@@ -1,9 +1,6 @@
 package org.opencloudengine.samples.spring.boot;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "products")
@@ -11,11 +8,14 @@ public class Product {
 
 	@Id
 	@Column(name = "ProductID")
+	@GeneratedValue(strategy= GenerationType.AUTO)
 	private int prodID;
 
 	@Column(name = "ProductName")
 	private String name;
 
+	public Product() {
+	}
 
 	public int getProdID() {
 		return prodID;
@@ -31,5 +31,13 @@ public class Product {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "Product{" +
+			"prodID=" + prodID +
+			", name='" + name + '\'' +
+			'}';
 	}
 }
