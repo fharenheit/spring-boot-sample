@@ -19,6 +19,7 @@ public class Application {
 	 * SLF4J Logging
 	 */
 	private static Logger logger = LoggerFactory.getLogger(Application.class);
+	private static Logger monitoring = LoggerFactory.getLogger("laucher.monitoring");
 
 	public static void main(String[] args) throws Exception {
 		System.out.println("  _____ _                 _                     ____        _       _       _                           _               \n" +
@@ -37,6 +38,7 @@ public class Application {
 		product.setName("Hello World");
 		service.addProduct(product);
 		logger.info("{}", product);
+		monitoring.info("{}", product);
 	}
 
 }

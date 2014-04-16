@@ -6,8 +6,10 @@
     <property name="CONSOLE_LOG_PATTERN_DEBUG" value="%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%c:%L]){cyan} %clr(:){faint} %m%n%wex"/>
     <property name="CONSOLE_LOG_PATTERN" value="%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%c:%L]){cyan} %clr(:){faint} %m%n%wex"/>
     <property name="FILE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %5p ${PID:- } [%t] --- %-40.40logger{39} : %m%n%wex"/>
+    <property name="MONITORING_LOG_PATTERN" value="[${PID:- }] %d{yyyyMMdd-HHmmssSSS} : %m%n%wex"/>
 
-    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${java.io.tmpdir:-/tmp}/}app.log}"/>
+    <property name="LAUNCHER_LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${java.io.tmpdir:-.}/}launcher.log}"/>
+    <property name="MONITORING_LOG_FILE" value="./launcher-monitoring.log"/>
 
     <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
     <conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"/>
@@ -26,16 +28,32 @@
         <encoder>
             <pattern>${FILE_LOG_PATTERN}</pattern>
         </encoder>
-        <file>${LOG_FILE}</file>
+        <file>${LAUNCHER_LOG_FILE}</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-            <fileNamePattern>${LOG_FILE}.%i</fileNamePattern>
+            <fileNamePattern>${LAUNCHER_LOG_FILE}.%i</fileNamePattern>
         </rollingPolicy>
         <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
             <MaxFileSize>10MB</MaxFileSize>
         </triggeringPolicy>
     </appender>
 
+    <appender name="MONITORING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${MONITORING_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${MONITORING_LOG_FILE}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <fileNamePattern>${MONITORING_LOG_FILE}.%i</fileNamePattern>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>100MB</MaxFileSize>
+        </triggeringPolicy>
+    </appender>
+
     <logger name="org.opencloudengine" level="DEBUG"/>
+    <logger name="laucher.monitoring" level="INFO">
+        <appender-ref ref="MONITORING"/>
+    </logger>
 
     <logger name="org.hibernate.validator.internal.util.Version" level="WARN"/>
     <logger name="org.apache.coyote.http11.Http11NioProtocol" level="WARN"/>
