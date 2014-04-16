@@ -42,8 +42,8 @@
     <logger name="org.crsh.plugin" level="WARN"/>
     <logger name="org.apache.tomcat.util.net.NioSelectorPool" level="WARN"/>
     <logger name="org.apache.catalina.startup.DigesterFactory" level="ERROR"/>
-    <logger name="org.springframework" level="false"/>
-    <logger name="org.hibernate" level="false"/>
+    <logger name="org.springframework" level="INFO"/>
+    <logger name="org.hibernate" level="INFO"/>
     <logger name="org.quartz" level="INFO"/>
     <logger name="com.mchange" level="INFO"/>
 
